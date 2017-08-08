@@ -64,4 +64,36 @@ public class Canvas extends JComponent {
 
         g.drawImage(image, 0, 0, null);
     }
+
+    // Clear.
+    public void clear() {
+        g2.setPaint(Color.white);
+        // Draw white on entire draw area to clear.
+        g2.fillRect(0, 0, getSize().width, getSize().height);
+        g2.setPaint(Color.black);
+        repaint();
+    }
+
+    // @todo unify.
+    // Set color.
+    public void red() {
+        // Apply red color on g2 context.
+        g2.setPaint(Color.red);
+    }
+
+    public void black() {
+        g2.setPaint(Color.black);
+    }
+
+    public void magenta() {
+        g2.setPaint(Color.magenta);
+    }
+
+    public void green() {
+        g2.setPaint(Color.green);
+    }
+
+    public void blue() {
+        g2.setPaint(Color.blue);
+    }
 }
