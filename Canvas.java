@@ -50,5 +50,18 @@ public class Canvas extends JComponent {
         });
     }
 
+    // Paint Components.
+    protected void paintComponent(Graphics g) {
+        if (image == null) {
+            // Image to draw null ==> we create.
+            image = createImage(getSize().width, getSize().height);
+            g2 = (Graphics2D) image.getGraphics();
+            // Enable antialiasing.
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            // Clear draw area.
+            clear();
+        }
 
+        g.drawImage(image, 0, 0, null);
+    }
 }
