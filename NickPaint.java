@@ -41,8 +41,10 @@ public class NickPaint {
 
         JFrame frame = new JFrame("Nick Paint");
         Container content = frame.getContentPane();
+
         // Set layout on content pane.
         content.setLayout(new BorderLayout());
+
         // Create draw area.
         canvas = new Canvas();
 
@@ -52,29 +54,12 @@ public class NickPaint {
         // Create controls to apply colors and call clear feature.
         JPanel controls = new JPanel();
 
-        clearBtn = new JButton("Clear");
-        clearBtn.addActionListener(actionListener);
-        controls.add(clearBtn);
-
-        blackBtn = new JButton("Black");
-        controls.add(blackBtn);
-
-        blackBtn.addActionListener(actionListener);
-        blueBtn = new JButton("Blue");
-        controls.add(blueBtn);
-
-        blueBtn.addActionListener(actionListener);
-        greenBtn = new JButton("Green");
-        greenBtn.addActionListener(actionListener);
-        controls.add(greenBtn);
-
-        redBtn = new JButton("Red");
-        controls.add(redBtn);
-        redBtn.addActionListener(actionListener);
-
-        magentaBtn = new JButton("Magenta");
-        magentaBtn.addActionListener(actionListener);
-        controls.add(magentaBtn);
+        clearBtn = this.prepareColorButton("clear", controls);
+        blackBtn = this.prepareColorButton("black", controls);
+        blueBtn = this.prepareColorButton("blue", controls);
+        greenBtn = this.prepareColorButton("green", controls);
+        redBtn = this.prepareColorButton("red", controls);
+        magentaBtn = this.prepareColorButton("magenta", controls);
 
         // Add controls to panel.
         content.add(controls, BorderLayout.NORTH);
@@ -82,5 +67,12 @@ public class NickPaint {
         frame.setSize(1200, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+    }
+
+    public JButton prepareColorButton(String buttonName, JPanel controls) {
+        JButton button = new JButton(buttonName);
+        button.addActionListener(actionListener);
+        controls.add(button);
+        return button;
     }
 }
