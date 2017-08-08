@@ -11,4 +11,23 @@ import javax.swing.JPanel;
 
 public class NickPaint {
 
-}
+}    ActionListener actionListener = new ActionListener() {
+    ActionListener actionListener = new ActionListener() {
+
+        public void actionPerformed(ActionEvent e) {
+            // @todo unify.
+            if (e.getSource() == clearBtn) {
+                canvas.clear();
+            } else if (e.getSource() == blackBtn) {
+                canvas.black();
+            } else if (e.getSource() == blueBtn) {
+                canvas.blue();
+            } else if (e.getSource() == greenBtn) {
+                canvas.green();
+            } else if (e.getSource() == redBtn) {
+                canvas.red();
+            } else if (e.getSource() == magentaBtn) {
+                canvas.magenta();
+            }
+        }
+    };
